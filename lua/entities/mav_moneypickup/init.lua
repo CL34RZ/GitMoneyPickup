@@ -23,14 +23,16 @@ end
 
 function ENT:StartTouch(activator)
 
+	local pickedAmmount = math.random(MoneyMin,MoneyMax)
+
 	if not activator:IsPlayer() then
 		return""
 	end
 
 	if activator:IsPlayer() then
-		activator:addMoney(MoneyAmmount)
+		activator:addMoney(pickedAmmount)
 		activator:EmitSound("npc/crow/alert2.wav",self:GetPos())
-		DarkRP.notify(activator, 1, 4, "You have found ".. GAMEMODE.Config.currency .. MoneyAmmount .."!")
+		DarkRP.notify(activator, 1, 4, "You have found ".. GAMEMODE.Config.currency .. pickedAmmount .."!")
 	end
 
 	self:Remove()
